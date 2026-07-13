@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Clima Dinâmico</title>
+    <!-- Link para a fonte do Google para manter o layout elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS de forma correta segundo a nova estrutura -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-default">
+    <div class="container">
+        <!-- Cabeçalho do App -->
+        <header class="app-header">
+            <h1>Previsão do Tempo</h1>
+            <p>Descubra o clima em qualquer lugar do mundo</p>
+        </header>
+
+        <!-- Seção de Busca -->
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Digite o nome da cidade..." autocomplete="off">
+            <button id="searchBtn">
+                <!-- Ícone de lupa usando SVG embutido para evitar dependências externas -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </div>
+
+        <!-- Container de Erro (Escondido por padrão) -->
+        <div class="error-container" id="errorContainer">
+            <p id="errorMessage">Cidade não encontrada. Tente novamente!</p>
+        </div>
+
+        <!-- Container do Clima (Escondido por padrão e ativado via JS) -->
+        <main class="weather-card" id="weatherCard">
+            <div class="weather-info">
+                <h2 id="cityName">São Paulo, BR</h2>
+                <div class="weather-temp-container">
+                    <span id="temperature">24</span><span class="temp-unit">°C</span>
+                </div>
+                <div class="weather-condition-container">
+                    <img id="weatherIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Ícone do tempo">
+                    <p id="weatherDescription">Chuva Leve</p>
+                </div>
+            </div>
+
+            <!-- Grid de Detalhes Adicionais -->
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-info">
+                        <span class="detail-label">Umidade</span>
+                        <span class="detail-value" id="humidity">78%</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-info">
+                        <span class="detail-label">Vento</span>
+                        <span class="detail-value" id="windSpeed">12 km/h</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script JS configurado corretamente de acordo com a sua estrutura de pastas -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

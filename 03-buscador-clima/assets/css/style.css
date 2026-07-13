@@ -1,0 +1,252 @@
+/* Reset básico e tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-border: rgba(255, 255, 255, 0.25);
+    --text-color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.7);
+    --transition-speed: 0.5s;
+}
+
+/* Transição suave de fundos dinâmicos no corpo da página */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text-color);
+    transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+    overflow-x: hidden;
+}
+
+/* Paleta de fundos dinâmicos baseados no clima */
+.bg-default {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.bg-sunny {
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+}
+
+.bg-rainy {
+    background: linear-gradient(135deg, #3a6073 0%, #3a7bd5 100%);
+}
+
+.bg-cloudy {
+    background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%);
+}
+
+.bg-snowy {
+    background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+}
+
+.bg-thunderstorm {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+/* Container do App com efeito Glassmorphism (Efeito vidro fosco super moderno) */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Cabeçalho */
+.app-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.app-header p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* Caixa de Busca */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 5px 5px 5px 15px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #ffffff;
+}
+
+.search-box input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+.search-box input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.search-box button {
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1e3c72;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.search-box button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+}
+
+.search-box button:active {
+    transform: scale(0.95);
+}
+
+/* Box de Erros */
+.error-container {
+    background: rgba(255, 75, 75, 0.25);
+    border: 1px solid rgba(255, 75, 75, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    display: none; /* Escondido por padrão */
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.error-container p {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Card Principal de Clima */
+.weather-card {
+    display: none; /* Só mostra quando a busca der sucesso */
+    animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.weather-info {
+    margin-bottom: 30px;
+}
+
+.weather-info h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.weather-temp-container {
+    margin: 15px 0;
+}
+
+#temperature {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.temp-unit {
+    font-size: 2rem;
+    font-weight: 300;
+    vertical-align: super;
+}
+
+.weather-condition-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#weatherIcon {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+#weatherDescription {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+/* Grid de Informações Adicionais (Grid Layout sem Flex para os itens) */
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    border-top: 1px solid var(--card-border);
+    padding-top: 25px;
+}
+
+.detail-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.detail-icon {
+    font-size: 1.6rem;
+}
+
+.detail-info {
+    text-align: left;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.detail-value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
