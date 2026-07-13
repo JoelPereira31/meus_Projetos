@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Inteligente</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Adicionando ícones modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Criar Conta</h2>
+            <p class="subtitle">Insira seus dados para começar</p>
+
+            <form id="cadastroForm" novalidate>
+                <!-- Campo Nome -->
+                <div class="input-group" id="grupoNome">
+                    <label for="nome">Nome Completo</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="nome" placeholder="Digite seu nome">
+                        <i class="fa-solid fa-circle-check status-icon success"></i>
+                        <i class="fa-solid fa-circle-xmark status-icon error"></i>
+                    </div>
+                    <span class="error-msg">O nome deve ter pelo menos 3 caracteres.</span>
+                </div>
+
+                <!-- Campo E-mail -->
+                <div class="input-group" id="grupoEmail">
+                    <label for="email">E-mail</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="exemplo@email.com">
+                        <i class="fa-solid fa-circle-check status-icon success"></i>
+                        <i class="fa-solid fa-circle-xmark status-icon error"></i>
+                    </div>
+                    <span class="error-msg">Insira um e-mail válido.</span>
+                </div>
+
+                <!-- Campo Senha -->
+                <div class="input-group" id="grupoSenha">
+                    <label for="senha">Senha</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="senha" placeholder="No mínimo 8 caracteres">
+                        <i class="fa-solid fa-circle-check status-icon success"></i>
+                        <i class="fa-solid fa-circle-xmark status-icon error"></i>
+                    </div>
+                    <!-- Medidor de força da senha -->
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="bar"></div>
+                        <span class="strength-text">Força da senha</span>
+                    </div>
+                    <span class="error-msg">A senha precisa ter letras maiúsculas, minúsculas, números e 8 caracteres.</span>
+                </div>
+
+                <!-- Campo Confirmar Senha -->
+                <div class="input-group" id="grupoConfirmarSenha">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirmarSenha" placeholder="Digite a senha novamente">
+                        <i class="fa-solid fa-circle-check status-icon success"></i>
+                        <i class="fa-solid fa-circle-xmark status-icon error"></i>
+                    </div>
+                    <span class="error-msg">As senhas não coincidem.</span>
+                </div>
+
+                <button type="submit" id="btnEnviar" disabled>Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

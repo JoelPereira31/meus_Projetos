@@ -1,0 +1,214 @@
+/* Importação de fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0f172a; /* Azul escuro bem elegante */
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-box {
+    background-color: #1e293b; /* Fundo do card ligeiramente mais claro */
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* Grupos de Entrada */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field i:first-child {
+    position: absolute;
+    left: 14px;
+    color: #64748b;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #f8fafc;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efeitos de Foco */
+.input-field input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.input-field input:focus ~ i:first-child {
+    color: #6366f1;
+}
+
+/* Ícones de Status de Validação */
+.status-icon {
+    position: absolute;
+    right: 14px;
+    font-size: 16px;
+    display: none; /* Escondidos por padrão */
+    pointer-events: none;
+}
+
+.status-icon.success {
+    color: #10b981; /* Verde */
+}
+
+.status-icon.error {
+    color: #f43f5e; /* Vermelho */
+}
+
+/* Mensagens de Erro */
+.error-msg {
+    font-size: 12px;
+    color: #f43f5e;
+    margin-top: 6px;
+    display: none; /* Oculta por padrão */
+}
+
+/* Estados de Validação aplicados via JS */
+.input-group.success .input-field input {
+    border-color: #10b981;
+}
+
+.input-group.success .status-icon.success {
+    display: block;
+}
+
+.input-group.error .input-field input {
+    border-color: #f43f5e;
+}
+
+.input-group.error .status-icon.error {
+    display: block;
+}
+
+.input-group.error .error-msg {
+    display: block;
+}
+
+/* Força da Senha */
+.password-strength {
+    margin-top: 10px;
+    display: none; /* Mostra apenas quando o usuário digita na senha */
+    flex-direction: column;
+    gap: 6px;
+}
+
+.password-strength .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #334155;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-strength .bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%; /* Alterado dinamicamente via JS */
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* Cores da barra de força */
+.password-strength.fraca .bar::before { width: 33%; background-color: #f43f5e; }
+.password-strength.media .bar::before { width: 66%; background-color: #f59e0b; }
+.password-strength.forte .bar::before { width: 100%; background-color: #10b981; }
+
+.strength-text {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* Botão Enviar */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #6366f1, #4f46e5);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background: #334155;
+    color: #64748b;
+    cursor: not-allowed;
+}
