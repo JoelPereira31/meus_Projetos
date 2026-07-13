@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despertador Minimalista</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Biblioteca de Ícones Modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="alarm-box">
+            <!-- Ícone flutuante do despertador -->
+            <div class="icon-header">
+                <i class="fa-solid fa-clock" id="clockIcon"></i>
+            </div>
+
+            <!-- Display do Relógio Digital -->
+            <div class="clock-display" id="clockDisplay">00:00:00</div>
+            
+            <!-- Indicador de Alarme Ativo -->
+            <div class="alarm-status" id="alarmStatus">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alarme definido para <strong id="alarmTimeText">--:--</strong></span>
+            </div>
+
+            <!-- Painel de Configuração do Alarme -->
+            <div class="controls" id="alarmControls">
+                <div class="select-group">
+                    <select id="selectHour">
+                        <option value="" disabled selected>Hora</option>
+                        <!-- Gerado via JavaScript -->
+                    </select>
+                    <span>:</span>
+                    <select id="selectMinute">
+                        <option value="" disabled selected>Minuto</option>
+                        <!-- Gerado via JavaScript -->
+                    </select>
+                </div>
+
+                <button id="btnSetAlarm">Definir Alarme</button>
+            </div>
+
+            <!-- Botão de Desligar (Mostrado apenas quando o alarme dispara) -->
+            <button id="btnStopAlarm" class="btn-stop hidden">Desligar Alarme</button>
+        </div>
+    </div>
+
+    <!-- Elemento de áudio invisível para reproduzir o som -->
+    <audio id="alarmAudio" loop>
+        <source src="assets/audio/alarme.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

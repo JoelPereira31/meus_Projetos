@@ -1,0 +1,217 @@
+/* Importação de fonte mono digital e fonte de interface moderna */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #090d16; /* Fundo escuro profundo */
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.alarm-box {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Ícone de Cabeçalho */
+.icon-header {
+    width: 70px;
+    height: 70px;
+    background-color: #1f2937;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 24px auto;
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+}
+
+.icon-header i {
+    font-size: 28px;
+    color: #6366f1; /* Roxo moderno */
+}
+
+/* Estado Ativo: Alarme Disparando */
+.alarm-box.ringing {
+    border-color: #ef4444;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
+    animation: shake 0.5s infinite;
+}
+
+.alarm-box.ringing .icon-header {
+    background-color: #ef4444;
+    animation: pulse-ring 1s infinite;
+}
+
+.alarm-box.ringing .icon-header i {
+    color: white;
+}
+
+/* Display Digital do Relógio */
+.clock-display {
+    font-family: 'Share Tech Mono', monospace; /* Letreiro de relógio digital */
+    font-size: 54px;
+    color: #f8fafc;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(248, 250, 252, 0.1);
+}
+
+/* Status do Alarme Configurado */
+.alarm-status {
+    background-color: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 10px 16px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #a5b4fc;
+    margin-bottom: 30px;
+    opacity: 0; /* Ocultado até o alarme ser ativado */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.alarm-status.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alarm-status i {
+    font-size: 14px;
+    animation: swing 2s infinite ease-in-out;
+}
+
+/* Seletores de Hora/Minuto */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.select-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.select-group select {
+    background-color: #1f2937;
+    color: #f8fafc;
+    border: 1px solid #374151;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100px;
+    text-align: center;
+    appearance: none; /* Remove seta padrão do sistema operacional */
+    -webkit-appearance: none;
+}
+
+.select-group select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.select-group span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4b5563;
+}
+
+/* Botões */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnSetAlarm {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+#btnSetAlarm:hover {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Estado de alarme ativo (botão se torna secundário) */
+#btnSetAlarm.active {
+    background: #1f2937;
+    border: 1px solid #374151;
+    color: #9ca3af;
+}
+
+.btn-stop {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.btn-stop:hover {
+    transform: scale(1.02);
+}
+
+.btn-stop.hidden {
+    display: none;
+}
+
+/* Animações (Efeitos Visuais) */
+@keyframes swing {
+    0%, 100% { transform: rotate(0); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-10deg); }
+    30% { transform: rotate(5deg); }
+    40% { transform: rotate(-5deg); }
+    50% { transform: rotate(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-2px, 1px) rotate(-0.5deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    60% { transform: translate(-1px, 2px) rotate(-1deg); }
+    80% { transform: translate(2px, 1px) rotate(0.5deg); }
+}
+
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
