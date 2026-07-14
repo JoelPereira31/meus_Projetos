@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro Pessoal</title>
+    <!-- Link para a fonte do Google para manter o layout elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS localizado na pasta correta -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="app-header">
+            <h1>Finanças Pessoais</h1>
+            <p>Gerencie seus ganhos e gastos de forma simples</p>
+        </header>
+
+        <!-- Painel de Saldo Geral -->
+        <div class="balance-card">
+            <h2>Saldo Atual</h2>
+            <h1 id="balance">R$ 0,00</h1>
+        </div>
+
+        <!-- Cartões de Receitas (Entradas) e Despesas (Saídas) -->
+        <div class="summary-container">
+            <div class="card income-card">
+                <h3>Receitas</h3>
+                <p id="money-plus" class="money plus">+ R$ 0,00</p>
+            </div>
+            <div class="card expense-card">
+                <h3>Despesas</h3>
+                <p id="money-minus" class="money minus">- R$ 0,00</p>
+            </div>
+        </div>
+
+        <!-- Histórico de Transações -->
+        <section class="history-container">
+            <h3>Histórico de Transações</h3>
+            <!-- Lista dinâmica que será preenchida via JavaScript -->
+            <ul id="transactions" class="transactions-list"></ul>
+            <p id="empty-list" class="empty-list-msg">Nenhuma transação cadastrada.</p>
+        </section>
+
+        <!-- Formulário para Adicionar Nova Transação -->
+        <section class="form-container">
+            <h3>Nova Transação</h3>
+            
+            <!-- Substituímos o <form> por uma <div> para bloquear recarregamentos fantasmas -->
+            <div id="transaction-box">
+                <div class="form-control">
+                    <label for="text">Descrição</label>
+                    <input type="text" id="text" placeholder="Ex: Salário, Aluguel, Supermercado..." autocomplete="off">
+                </div>
+
+                <div class="form-control">
+                    <label for="amount">
+                        Valor (R$) <br>
+                        <small>(Use sinal de menos (-) para despesas)</small>
+                    </label>
+                    <input type="number" step="0.01" id="amount" placeholder="Ex: 1500.00 ou -35.50">
+                </div>
+
+                <!-- Adicionamos um ID específico no botão -->
+                <button id="add-btn" class="btn">Adicionar Transação</button>
+            </div>
+
+        </section>
+
+    <!-- Script JS localizado na pasta correta -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

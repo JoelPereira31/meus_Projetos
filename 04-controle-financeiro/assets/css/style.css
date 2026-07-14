@@ -1,0 +1,266 @@
+/* Reset e configurações de layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #f4f7f6;
+    --text-main: #2c3e50;
+    --primary-color: #3498db;
+    --income-color: #2ecc71;
+    --expense-color: #e74c3c;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* Container do App */
+.container {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* Cabeçalho */
+.app-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.app-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.app-header p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* Card do Saldo Atual */
+.balance-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.balance-card h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+.balance-card h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 5px;
+    word-break: break-all;
+}
+
+/* Container de Resumo (Receitas vs Despesas) */
+.summary-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 15px 20px;
+    text-align: left;
+    box-shadow: var(--card-shadow);
+}
+
+.card h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.money {
+    font-size: 1.25rem;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.money.plus {
+    color: var(--income-color);
+}
+
+.money.minus {
+    color: var(--expense-color);
+}
+
+/* Histórico de Transações */
+.history-container, .form-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 25px;
+}
+
+.history-container h3, .form-container h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid #ebedf0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.transactions-list {
+    list-style-type: none;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Itens da Lista de Transações */
+.transactions-list li {
+    background-color: #f9fbfb;
+    border: 1px solid #ebedf0;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+
+.transactions-list li:hover {
+    transform: translateX(2px);
+}
+
+/* Bordas dinâmicas nos itens */
+.transactions-list li.plus {
+    border-right: 5px solid var(--income-color);
+}
+
+.transactions-list li.minus {
+    border-right: 5px solid var(--expense-color);
+}
+
+/* Botão de Exclusão (escondido por padrão, aparece ao passar o mouse) */
+.delete-btn {
+    cursor: pointer;
+    background-color: var(--expense-color);
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1;
+    padding: 6px 10px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    border-radius: 6px 0 0 6px;
+    transition: all 0.25s ease;
+}
+
+.transactions-list li:hover .delete-btn {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.transactions-list li {
+    overflow: hidden; /* Garante que o botão delete deslize elegante de fora do item */
+}
+
+.empty-list-msg {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    padding: 15px 0;
+}
+
+/* Formulário */
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-control label small {
+    opacity: 0.65;
+    font-weight: 300;
+}
+
+.form-control input {
+    width: 100%;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    background-color: #fbfbfb;
+    transition: border-color 0.2s;
+}
+
+.form-control input:focus {
+    border-color: var(--primary-color);
+    background-color: #ffffff;
+}
+
+/* Botão de envio */
+.btn {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Customização leve da barra de rolagem do histórico */
+.transactions-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.transactions-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
